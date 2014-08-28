@@ -1,0 +1,6 @@
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\AmericanRiffleman2.dll.config
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\AmericanRiffleman2.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\AmericanRiffleman2.pdb
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\obj\Debug\AmericanRiffleman2.csprojResolveAssemblyReference.cache
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\obj\Debug\AmericanRiffleman2.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\obj\Debug\AmericanRiffleman2.pdb

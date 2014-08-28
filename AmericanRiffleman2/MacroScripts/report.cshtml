@@ -1,0 +1,110 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+    var articles = @Model.AncestorOrSelf().Descendants("Article");
+    int totalArticles = 0;
+    int totalCategories = 0;
+    int totalTags = 0;
+    string strCategoriesAll = "";
+    string strTagsAll = "";
+
+}
+
+    @foreach (var article in articles)
+    {
+        totalArticles++;
+        strCategoriesAll += article.categories;
+        strTagsAll += article.topicTags;
+    }
+
+    @{
+        string strDistinctCategories = "";
+        string[] aryCategoriesAll = strCategoriesAll.TrimEnd(',').Split(',').ToArray();
+        string[] aryCategoriesDistinct = strCategoriesAll.TrimEnd(',').Split(',').Distinct().ToArray();
+        Array.Sort(aryCategoriesDistinct);
+        foreach (string cat in aryCategoriesDistinct)
+        {
+            if (cat != " ")
+            {
+                int categoryCount = 0;
+                foreach (string c in aryCategoriesAll)
+                {
+                    if (c == cat.Trim()) {
+                        categoryCount++;
+                    }
+
+                }
+                strDistinctCategories += "<tr><td>" + cat.Trim() + "</td><td>" + categoryCount + "</td></tr>";
+                totalCategories++;
+            }
+        }
+
+        string strDistinctTags = "";
+        string[] aryTagsAll = strTagsAll.TrimEnd(',').Split(',').ToArray();
+        string[] aryTagsDistinct = strTagsAll.TrimEnd(',').Split(',').Distinct().ToArray();
+        Array.Sort(aryTagsDistinct);
+        foreach (string tag in aryTagsDistinct)
+        {
+            if (tag != " ")
+            {
+                int tagCount = 0;
+                foreach (string t in aryTagsAll)
+                {
+                    if (t == tag.Trim())
+                    {
+                        tagCount++;
+                    }
+
+                }
+                strDistinctTags += "<tr><td>" + tag.Trim() + "</td><td>" + tagCount + "</td></tr>";
+                totalTags++;
+            }
+        }
+
+    }
+
+
+    <h3>Total Articles: @totalArticles</h3><br />
+    @* <div><b>All Categories</b>: <ul>@Html.Raw(strCategoriesAll)</ul></div><br /> *@
+    <div class="pull-right" style="margin-top: 16px;"><button class="btn btn-primary" onclick="tableToExcel('tableCategories', 'American Rifleman Categories')" value="Export to Excel"><span class="glyphicon glyphicon-download"></span> Download XLS</button></div>
+    <div><h3>Distinct Categories (@totalCategories)</h3>: <table id="tableCategories" class="table tablesorter table-striped"><thead><tr><th style="cursor:pointer;">Category</th><th style="cursor: pointer; width: 200px;">Count</th></tr></thead><tbody>@Html.Raw(strDistinctCategories)</tbody></table></div><br />
+    <div class="pull-right" style="margin-top: 16px;"><button class="btn btn-primary" onclick="tableToExcel('tableTags', 'American Rifleman Tags')" value="Export to Excel"><span class="glyphicon glyphicon-download"></span> Download XLS</button></div>
+    <div><h3>Distinct Tags (@totalTags)</h3>: <table id="tableTags" class="table tablesorter table-striped"><thead><tr><th style="cursor:pointer;">Tags</th><th style="cursor: pointer; width: 200px;">Count</th></tr></thead><tbody>@Html.Raw(strDistinctTags)</tbody></table></div><br />
+
+
+
+
+    @* loop over all articles and create list of all categories & tags
+    <div>
+            @foreach (var article in articles)
+            {
+                totalArticles++;
+                strCategoriesAll += article.categories;
+                strTagsAll += article.topicTags;
+            }
+            @{
+                string strDistinctCategories = "";
+                string[] aryCategories = strCategoriesAll.TrimEnd(',').Split(',').Distinct().ToArray();
+                Array.Sort(aryCategories);
+                foreach (string cat in aryCategories)
+                {
+                    if (cat != " ") {
+                        strDistinctCategories += "<li>" + cat.Trim() + "</li> ";
+                        totalCategories++;
+                    }
+                }
+                string strDistinctTags = "";
+                string[] aryTags = strTagsAll.TrimEnd(',').Split(',').Distinct().ToArray();
+                Array.Sort(aryTags);
+                foreach (string tag in aryTags)
+                {
+                    if (tag != " ") {
+                        strDistinctTags += "<li>" + tag.Trim() + "</li> ";
+                        totalTags++;
+                    }
+                }
+            }
+        </div><hr />
+        <div><b>Total Articles:</b> @totalArticles</div><br />
+        <div><b>Distinct Categories (@totalCategories)</b>: <ul>@Html.Raw(strDistinctCategories)</ul></div><br />
+        <div><b>Distinct Tags (@totalTags)</b>: <ul>@Html.Raw(strDistinctTags)</ul></div><br />
+    *@

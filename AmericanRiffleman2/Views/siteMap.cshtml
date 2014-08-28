@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+
+@Umbraco.RenderMacro("Header")
+	
+	@Umbraco.RenderMacro("Nav")
+	
+	<div class="container">
+		
+		@Umbraco.RenderMacro("Breadcrumbs")
+		
+    	<h1>@Umbraco.Field("title")</h1>
+	
+		@Umbraco.Field("bodyContent")
+		
+		@Umbraco.RenderMacro("Sitemap")
+		
+	</div>
+		
+@Umbraco.RenderMacro("Footer")

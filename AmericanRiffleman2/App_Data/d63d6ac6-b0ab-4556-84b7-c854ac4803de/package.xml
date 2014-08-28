@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>CMSImport.WordPress.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>CMSImport.WordPress.dll</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>CMSImport Wordpress data adapters</name>
+      <version>2.4</version>
+      <license url="http://soetemansoftware.nl/cmsimport/cmsimport-licenseagreement">CMSImport (PRO) License Agreement</license>
+      <url>http://soetemansoftware.nl/cmsimport</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Soeteman Software</name>
+      <website>http://soetemansoftware.nl/</website>
+    </author>
+    <readme><![CDATA[CMSImport Wordpress data adapters adds extra data adapters to support Wordpress export file import. The following info from a Wordpress file can be imported:
+
+- Wordpress Authors
+- Wordpress Blogposts
+- Wordpress Categories
+- Wordpress Comments
+- Wordpress Pages
+- Wordpress Tags
+
+This package requires that CMSImport PRO is installed.]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>

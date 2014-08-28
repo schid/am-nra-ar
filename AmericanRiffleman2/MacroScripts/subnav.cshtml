@@ -1,0 +1,24 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+
+
+@* Ensure that the Current Page has children, where the property umbracoNaviHide is not True *@
+@if (Model.Children.Where("Visible").Any())
+{
+    <ul>            
+        @* For each child page under the root node, where the property umbracoNaviHide is not True *@
+        @foreach (var childPage in Model.Children.Where("Visible"))
+        {
+            <li>
+                <a href="@childPage.Url">@childPage.Name</a>
+				
+				@if (childPage.pdf != ""){
+					<span class="glyphicon glyphicon-file" title="PDF attachment"></span>
+				}
+				@if (childPage.video != "" || childPage.videoMp4 != "" || childPage.videoMp4 != ""){
+					<span class="glyphicon glyphicon-film" title="Video"></span>
+				}
+				
+            </li>
+        }
+    </ul>
+}

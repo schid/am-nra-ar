@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+
+@Umbraco.RenderMacro("Header")
+	
+	@Umbraco.RenderMacro("Nav")
+	
+	<div class="container">
+		
+		@Umbraco.RenderMacro("Breadcrumbs")
+		
+    	<h1>@Umbraco.Field("title")</h1>
+		
+		@Umbraco.RenderMacro("Subnav")
+	
+		@Umbraco.Field("bodyContent")
+		
+		@Umbraco.RenderMacro("Report")
+		
+	</div>
+		
+		
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery.tablesorter.min.js"></script>
+		
+	<script>
+		
+	var tableToExcel = (function() {
+		var uri = 'data:application/vnd.ms-excel;base64,'
+		, template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+		, base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+		, format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+	  	return function(table, name) {
+		if (!table.nodeType) table = document.getElementById(table)
+		var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+		window.location.href = uri + base64(format(template, ctx))
+	  }
+	})()
+		
+		
+		
+	$(document).ready(function(){
+		$(function(){
+			$("#tableCategories").tablesorter();
+			$("#tableTags").tablesorter();
+		});
+	});
+	</script>
+		
+@Umbraco.RenderMacro("Footer")
