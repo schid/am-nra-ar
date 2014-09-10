@@ -6,6 +6,7 @@
 **/App_Data/Logs/
 **/App_Data/[Pp]review/
 **/App_Data/TEMP/
+**/App_Data/cache/
 Cached/
 
 # Ignore Umbraco content cache file
@@ -15,3 +16,6 @@ Cached/
 # Make sure to include details from VisualStudio.gitignore BEFORE this
 !**/App_Data/[Pp]ackages/
 !**/[Uu]mbraco/developer/[Pp]ackages
+
+**/Media/
+**/Umbraco/Plugins/TheOutfield/BACKUP/
