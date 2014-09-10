@@ -1,0 +1,23 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@*
+	Model = The current page the macro is executed on
+			@Model.bodyText
+
+	Parameter = collection of parameter values passed from the macro
+			@Paramter.myParam
+
+    Library = utillity library with common methods
+    		@Library.NodeById(1233)
+*@
+
+@* The fun starts here *@
+
+
+@if (Model.HasValue("galleryImages"))
+{
+    foreach (var item in Model.GetProperty("galleryImages").Value.Split(','))
+    {
+        <div class="pull-left"><img src="@Model.MediaById(@item).umbracoFile" alt="Gallery Image" /></div>
+    }
+}
