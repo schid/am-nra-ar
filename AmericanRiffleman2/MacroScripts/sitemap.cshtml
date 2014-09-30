@@ -25,11 +25,14 @@
             {
                 <li class="level-@item.Level">
                     <a href="@item.Url">@item.Name</a>
-					
+
+					@if (item.galleryImages != "" || item.bodyContent.ToString().Contains("[gallery]")){
+                        <span class="glyphicon glyphicon-picture" title=" photo gallery"></span>
+                    }
 					@if (item.pdf != ""){
-						<span class="glyphicon glyphicon-file" title="PDF attachment"></span>
+						<span class="glyphicon glyphicon-file" title="PDF Attachment"></span>
 					}
-					@if (item.video != "" || item.videoMp4 != "" || item.videoMp4 != ""){
+					@if (item.video != "" || item.videoMp4 != ""){
 						<span class="glyphicon glyphicon-film" title="Video"></span>
 					}
 					

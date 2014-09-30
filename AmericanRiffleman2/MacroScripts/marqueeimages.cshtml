@@ -11,13 +11,19 @@
     		@Library.NodeById(1233)
 *@
 
-@* The fun starts here *@
-
 
 @if (Model.HasValue("galleryImages"))
 {
-    foreach (var item in Model.GetProperty("galleryImages").Value.Split(','))
-    {
-        <div class="pull-left"><img src="@Model.MediaById(@item).umbracoFile" alt="Gallery Image" /></div>
-    }
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            @foreach (var item in Model.GetProperty("galleryImages").Value.Split(','))
+            {
+                <div class="swiper-slide">
+                    <div><img src="@Model.MediaById(@item).umbracoFile" alt="Gallery Image" class="full-width" /></div>
+                </div>
+                <div class="pull-left"></div>
+            }
+        </div>
+        <div class="pagination"></div>
+    </div>  
 }
