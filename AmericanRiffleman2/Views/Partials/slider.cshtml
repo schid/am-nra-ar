@@ -1,0 +1,31 @@
+﻿
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Archetype.Models;
+@using Archetype.Extensions;
+@using umbraco.MacroEngines.Library;
+
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            
+            @foreach (var fieldset in Model.Content.GetPropertyValue<ArchetypeModel>("banners"))
+            {
+                var image = Umbraco.TypedMedia(fieldset.GetValue("image"));//returns mediaId then we grab it with the helper
+                <div class="swiper-slide">
+                    <a href="/@fieldset.GetValue("link")"><img src="@image.Url" class="full-width" /></a>
+                </div>
+            }
+            
+        </div>
+        <div class="pagination"><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span><span class="swiper-pagination-switch swiper-visible-switch"></span><span class="swiper-pagination-switch swiper-visible-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span></div>
+    </div>
+   
+
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: '.pagination',
+            paginationClickable: true,
+            slidesPerView: 3
+        })
+    </script>
+
