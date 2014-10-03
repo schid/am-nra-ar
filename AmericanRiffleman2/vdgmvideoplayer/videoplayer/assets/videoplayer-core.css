@@ -1,0 +1,9 @@
+/* videoplayer-core.css */
+
+.yui3-videoplayer-content {
+    background: rgba(0, 0, 0, .9);
+}
+
+.no-flash {
+    padding: 10px;
+}

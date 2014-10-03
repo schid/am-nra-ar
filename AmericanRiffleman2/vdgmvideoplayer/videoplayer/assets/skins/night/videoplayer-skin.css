@@ -1,0 +1,6 @@
+/* videoplayer-skin.css */
+
+.yui3-videoplayer video {
+    width: 100%;
+    height: 100%;
+}

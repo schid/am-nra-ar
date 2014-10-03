@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+
+
+@Html.Partial("desktopHeader", new ViewDataDictionary { { "currentPage", CurrentPage.Id } })
+
+@Html.Partial("desktopNav")
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">@Umbraco.Field("bodyContent")</div>
+    </div>
+</div>
+
+
+@Html.Partial("desktopFooter")
+
+</body>
+</html>

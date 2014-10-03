@@ -1,0 +1,14 @@
+@media print {
+    body {
+        background: white;
+        font-size: 12pt;
+    }    
+    .no-print{display: none;}
+
+	#print_header { display: block; }
+
+	#sidebar, #slide_bar, #header, #menu, #share-panel, .election-rep-img, #footer, #related-content-link { display: none; }
+
+	a[href]:after { content: "" !important; }
+}
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
