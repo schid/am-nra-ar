@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+
+<!--
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Wordpress Import</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                @foreach (var page in CurrentPage.AncestorOrSelf(1).Children.Where("Visible")){
+                    <li class="@(page.IsAncestorOrSelf(CurrentPage) ? "active" : null)"><a href="@page.Url">@page.Name</a></li>
+                }
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/sitemap">Sitemap</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pull-right">
+                    <div class="login-register pull-right"><a href="#">Login</a> or <a href="#">Register</a></div>
+                    <div class="more-nra pull-right"><a href="#">More NRA</a> <i class="fa fa-map-marker"></i></div>
+                    <div class="share-icon pull-right"><a href="https://plus.google.com/114571623465511018944/posts" target="_blank"><i class="fa fa-google-plus"></i></a></div>
+                    <div class="share-icon pull-right"><a href="http://www.youtube.com/NRApubs" target="_blank"><i class="fa fa-youtube"></i></a></div>
+                    <div class="share-icon pull-right"><a href="https://twitter.com/NRA_Rifleman" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                    <div class="share-icon pull-right"><a href="http://www.facebook.com/AmericanRifleman" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-1"><div class="menu-btn"><a href="#"><i class="fa fa-bars"></i></a></div></div>
+            <div class="col-xs-1"><div class="logo"><a href="/"><img src="/media/1047363/logo-01.png" alt="American Rifleman" /></a></div></div>
+            <div class="col-md-8 visible-lg"><div><a href="#"><img src="/media/1047362/banner-01.jpg" /></a></div></div>
+            <div class="col-xs-2 pull-right"><div class="search-icon pull-right"><a href="#" title="search"><i class="fa fa-search"></i></a></div></div>
+        </div>
+    </div>
+</div>

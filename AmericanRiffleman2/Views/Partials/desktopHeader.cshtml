@@ -1,0 +1,94 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Newtonsoft.Json
+@using ClientDependency.Core;
+@using ClientDependency.Core.Mvc;
+@*Declaring ClientDependency*@
+@{
+    Html.RequiresCss("/css/bootstrap.min.css");
+    Html.RequiresCss("/css/styles.css");
+    Html.RequiresCss("/css/desktop.css");
+    Html.RequiresCss("/css/print.css");
+    Html.RequiresCss("/vdgmvideoplayer/vdgm/assets/styles/perfect-scrollbar.css");
+    Html.RequiresCss("/vdgmvideoplayer/vdgm/assets/styles/externalize-video.css");
+    Html.RequiresCss("/css/idangerous.swiper.css");
+
+    var CurrentPage = Umbraco.Content(ViewData["currentPage"]);
+    var articleTitle = ViewData["articleTitle"];
+    var articleImage = ViewData["articleImage"];
+    var articleSummary = ViewData["articleSummary"];
+    var metaDescription = ViewData["metaDescription"];
+    var metaKeywords = ViewData["metaKeywords"];
+}
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <!--THE NATIONAL RIFLE ASSOCIATION -->
+    <!-- Political Victory Fund -->
+    <!-- POLITICAL VICTORY FUND -->
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="******CHANGE ME********" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/images/mobile_skin/web_icon_152.png" rel="apple-touch-icon-precomposed" />
+    <link rel="shortcut icon" sizes="152x152" href="**********">
+
+    @if (metaDescription != null)
+    {
+        <meta name="description" content="@metaDescription.ToString().Trim()">
+    }
+    else if (articleSummary != null)
+    {
+        <meta name="description" content="@articleSummary.ToString().Trim()">
+    }
+    else
+    {
+        <meta name="description" content="@Umbraco.Field("metaDescription", recursive: true)">
+    }
+
+    @if (metaKeywords != null)
+    {
+        <meta name="keywords" content="@metaKeywords.ToString().Trim()">
+    }
+    else
+    {
+        <meta name="keywords" content="@Umbraco.Field("metaKeywords", recursive: true)">
+    }
+
+    <meta name="author" content="American Rifleman">
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+
+    @if (articleTitle != null)
+    {
+        <title>NRA-PVF | @articleTitle.ToString().Trim()</title>;
+    }
+    else
+    {
+        if (@Umbraco.Field("title").ToString().Trim() != "")
+        {
+            <title>NRA-PVF | @Umbraco.Field("title").ToString().Trim()</title>
+        }
+        else
+        {
+            <title>NRA-PVF | @Umbraco.Field("pageName").ToString().Trim()</title>
+        }
+
+    }
+
+    <!-- These have to be at top for contour to work properly with modal forms and multiple forms on page -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.tablesorter.min.js" type="text/javascript"></script>
+    <script src="/scripts/idangerous.swiper.min.js" type="text/javascript"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS ClientDependency-->
+    @Html.Raw(Html.RenderCssHere())
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
