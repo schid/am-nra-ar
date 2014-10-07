@@ -1,4 +1,5 @@
 /*
+@blue-light: #3daeff;
 @blue-dark: #133853;
 @gray-light: #83898f;
 @gray-dark: #212121;
@@ -7,7 +8,7 @@
 /* global styles */
 body {color: #212121;}
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {margin-top: 10px; margin-bottom: 10px; font-weight: 800;}
-.summary-category {color: red; font-size: 12px}
+.summary-category {color: red; font-size: 12px;}
 
 /* section styles */
 .swiper-container{width:100%; height: 100%; text-align:center; border: 1px solid #eee;}
@@ -15,6 +16,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {margin-top: 10px; margin-bottom: 10px; font-
 .swiper-pagination-switch{display:inline-block;width:8px;height:8px;border-radius:8px;background:#222;margin-right:5px;opacity:0.8;border:1px solid #fff;cursor:pointer;}
 .swiper-visible-switch{background:#aaa;}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 .swiper-active-switch{background:#ff0000;}
+
+.slide-img {overflow: hidden;}
+.slide-copy {margin: -120px 20px 20px 20px; text-align: left;}
+.slide-title {color: red;}
+.slide-category {color: #fff; font-size: 12px;}
+.slide-summary {color:#fff;}
 
 .top-bar {color: #83898f; background-color: #212121; padding: 4px 0 4px 0;}
 .top-bar a {color: #ccc;}
