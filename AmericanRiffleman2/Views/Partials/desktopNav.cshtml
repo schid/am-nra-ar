@@ -2,7 +2,6 @@
 @using Archetype.Models;
 @using Archetype.Extensions;
 
-
 <!--
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
@@ -56,4 +55,13 @@
             <div class="col-xs-2 pull-right"><div class="search-icon pull-right"><a href="#" title="search"><i class="fa fa-search"></i></a></div></div>
         </div>
     </div>
+</div>
+
+<!-- temp nav -->
+<div class="container">
+    @foreach (var page in CurrentPage.AncestorOrSelf(1).Children.Where("Visible"))
+    {
+        <div class="pull-left"> <a href="@page.Url">@page.Name</a> | &nbsp; </div>
+    }
+    <div class="pull-left"><a href="/site-map/">Site Map</a></div>
 </div>

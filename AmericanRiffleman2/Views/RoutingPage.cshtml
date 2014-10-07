@@ -7,6 +7,8 @@
 
 @Html.Partial("desktopNav")
 
+@Html.Partial("slider")
+
 @if (@Umbraco.Field("bodyContent").ToString().Trim() != "")
 {
     <div class="container">
@@ -15,14 +17,6 @@
         </div>
     </div>
 }
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            @Umbraco.RenderMacro("Sitemap")
-        </div>
-    </div>
-</div>
 
 @Html.Partial("desktopFooter")
 

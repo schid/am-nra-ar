@@ -29,3 +29,12 @@ C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman
 C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Web.WebPages.xml
 C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Web.WebPages.Deployment.xml
 C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Web.WebPages.Razor.xml
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\Archetype.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\Newtonsoft.Json.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Web.Http.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\AutoMapper.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Net.Http.Formatting.dll
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\Newtonsoft.Json.xml
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Web.Http.xml
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\AutoMapper.xml
+C:\Users\scott-chidester\Documents\Visual Studio 2013\Projects\AmericanRiffleman2\AmericanRiffleman2\bin\System.Net.Http.Formatting.xml
