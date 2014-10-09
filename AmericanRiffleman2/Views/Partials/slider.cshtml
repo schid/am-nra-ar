@@ -12,23 +12,40 @@
                 @foreach (string strId in aryMarqueeIds)
                 {
                     var item = Umbraco.Content(strId);
-                    var imgUrlLegacy = "http://www.americanrifleman.org/" + @item.image;
+                    var imgUrl = "";
+
+                    if (item.mainImage.Length > 1)
+                    {
+                        imgUrl = @item.mainImage + "?preset=marqueeNarrow";
+                    }
+                    else if (item.image.Length > 1)
+                    {
+                        imgUrl = "http://www.americanrifleman.org" + @item.image + "?preset=marqueeNarrow";
+                    }
+                    
+                    string strCategoryIds = item.categorysection;
+                    string[] aryCategorySectionIds = strCategoryIds.Split(',');
+                    string strCategory = "";
+
+                    foreach (string strIdCategory in aryCategorySectionIds)
+                    {
+                        var itemCategory = Umbraco.Content(strIdCategory);
+                        if (itemCategory.level == 2)
+                        {
+                            strCategory += itemCategory.name + " ";
+                        }
+                    }
+                    
                     <div class="swiper-slide">
-                        <div class="slide-img">
-                            @if (item.mainImage.Length > 1)
-                            {
-                               <img src="@item.mainImage" />
-                            }
-                            else if (item.image.Length > 1)
-                            {
-                                <img src="@imgUrlLegacy" />
-                            }
-                        </div>
-                        <div class="slide-copy">
-                            <div class="slide-category">*** catagory ***</div>
-                            <div class="slide-title"><h2>@item.title</h2></div>
-                            <div class="slide-summary">@item.summaryContent</div>
-                        </div>
+                        
+                            <div class="slide-content" style="background-image: url('@imgUrl');">
+                                <div class="slide-copy">
+                                    <div class="slide-category">@strCategory</div>
+                                    <div class="slide-title"><h2><a href="@item.url">@item.title</a></h2></div>
+                                    <div class="slide-summary">@Html.Raw(item.summaryContent)</div>
+                                </div>
+                            </div>
+                        
                     </div>
                 }
             </div>
@@ -39,7 +56,7 @@
             var mySwiper = new Swiper('.swiper-container', {
                 pagination: '.pagination',
                 paginationClickable: true,
-                slidesPerView: 3
+                slidesPerView: 'auto'
             })
         </script>
     

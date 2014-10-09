@@ -91,14 +91,11 @@ sizes, pagination, etc.
 	/* Specify Swiper's Size: */
 	/*width:100%;
 	height: 500px;*/
-    max-height: 500px;
 }
 .swiper-slide {
 	/* Specify Slides's Size: */
 	/*width: 400px;
 	height: 100%;*/
-    max-width: 400px;
-    height: auto;
 }
 .swiper-slide-active {
 	/* Specific active slide styling: */

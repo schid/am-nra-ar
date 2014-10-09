@@ -19,103 +19,121 @@
 
 }
 
-@Umbraco.RenderMacro("Header")
-	
-	@Umbraco.RenderMacro("Nav")
+@Html.Partial("desktopHeader", new ViewDataDictionary { { "currentPage", CurrentPage.Id } })
+@Html.Partial("desktopNav")
+@Html.Partial("breadcrumbs")
 	
 	<div class="container">
-		
-		@Umbraco.RenderMacro("Breadcrumbs")
-		
-    	<h1>@Umbraco.Field("title")</h1>
-		
-		<p class="lead">@Umbraco.Field("summaryContent")</p>
-		
-		<!-- video -->
-		<!-- *** NOTE:  Video player needs to be replaced with custom flash player with ad server -->
-		@{
-			if (Umbraco.Field("image").ToString() != ""){
-				<p><img src="@imageUrl" /></p>
-			}
-			if (Umbraco.Field("video").ToString() != ""){
-				<p>
-					<video id="video" poster="" controls="">
-					  <source src="@video" type="video/mp4">
-					</video>	
-				</p>
-			} else if (Umbraco.Field("videoMp4").ToString() != ""){
-				<p>
-					<video id="video" poster="" controls="">
-					  <source src="@videoMp4" type="video/mp4">
-					</video>	
-				</p>
-			} else if (Umbraco.Field("videoFlv").ToString() != ""){
-				<p>
-					*** NOTE: FLASH VIDEO GOES HERE<br />
-					*** PATH TO .FLV FROM DATA FILE:  @videoFlv
-				</p>
-			}
-			
-		}
-		
-		<p class="text-muted pull-right"><em>@Umbraco.Field("byLine")</em></p>
-		<p class="text-muted"><em>@Umbraco.Field("publicationDate", formatAsDate: true)</em></p>
-		
-		@Umbraco.Field("bodyContent")
 
-			
-			
-			
-			
-		<!-- marquee images -->
-        @{
-            if (Umbraco.Field("galleryImages").ToString() != "")
-            {
+        <div class="row">
+
+            <!-- start main left area -->
+            <div class="col-sm-9">
+
+                <h1>@Umbraco.Field("title")</h1>
+                <p class="text-muted"><em>@Umbraco.Field("byLine") @Umbraco.Field("publicationDate", formatAsDate: true)</em></p>
+                <!-- <p class="lead">@Umbraco.Field("summaryContent")</p> -->
+                <!-- video -->
+                <!-- *** NOTE:  Video player needs to be replaced with custom flash player with ad server -->
+                @{
+                    if (Umbraco.Field("image").ToString() != "")
+                    {
+                        <p><img src="@imageUrl" /></p>
+                    }
+                    if (Umbraco.Field("video").ToString() != "")
+                    {
+                        <p>
+                            <video id="video" poster="" controls="">
+                                <source src="@video" type="video/mp4">
+                            </video>
+                        </p>
+                    }
+                    else if (Umbraco.Field("videoMp4").ToString() != "")
+                    {
+                        <p>
+                            <video id="video" poster="" controls="">
+                                <source src="@videoMp4" type="video/mp4">
+                            </video>
+                        </p>
+                    }
+                    else if (Umbraco.Field("videoFlv").ToString() != "")
+                    {
+                        <p>
+                            *** NOTE: FLASH VIDEO GOES HERE<br />
+                            *** PATH TO .FLV FROM DATA FILE:  @videoFlv
+                        </p>
+                    }
+
+                }
+
+                @Umbraco.Field("bodyContent")
+
+                <!-- marquee images -->
+                @{
+                    if (Umbraco.Field("galleryImages").ToString() != "")
+                    {
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Gallery Images</h3>
+                                @Umbraco.RenderMacro("Marqueeimages")
+                            </div>
+                        </div>
+                    }
+                }
+
+                <!-- pdf -->
+                @{
+                    if (Umbraco.Field("pdf").ToString() != "")
+                    {
+                        <h3>Attachment</h3>
+                        <p><a href="@pdf" target="_blank"><span class="glyphicon glyphicon-file" title="PDF attachment"></span> @pdf</a></p>
+                    }
+                }
+
+                <!-- categories/tags -->
                 <div class="row">
-                    <div class="col-sm-12">
-                        <h3>Gallery Images</h3>
-                        @Umbraco.RenderMacro("Marqueeimages")
+                    <div class="col-sm-6">
+                        <h3>Categories</h3>
+                        <div>
+                            @foreach (string category in categoryArry)
+                            {
+                                <a href="#"><span class="badge">@category</span></a>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>Tags</h3>
+                        <div>
+                            @foreach (string tag in tagArry)
+                            {
+                                <a href="#"><span class="badge">@tag</span></a>
+                            }
+                        </div>
                     </div>
                 </div>
-            }
-        }
-		
-	
+
+            </div>
+            <!-- end main left area -->
 
 
-				
-		<!-- pdf -->	
-		@{
-			if (Umbraco.Field("pdf").ToString() != ""){
-				<h3>Attachment</h3>
-				<p><a href="@pdf" target="_blank"><span class="glyphicon glyphicon-file" title="PDF attachment"></span> @pdf</a></p>
-			}	
-		}
-				
-		<!-- categories/tags -->
-		<div class="row">
-  			<div class="col-sm-6">
-				<h3>Categories</h3>
-				<div>
-					@foreach (string category in categoryArry)
-					{
-						<a href="#"><span class="badge">@category</span></a>
-					}
-				</div>
-			</div>
-  			<div class="col-sm-6">
-				<h3>Tags</h3>
-				<div>
-					@foreach (string tag in tagArry)
-					{
-						<a href="#"><span class="badge">@tag</span></a>
-					}
-				</div>
-			</div>
-		</div>
+            <!-- start right area -->
+            <div class="col-sm-3">
+                Right content....
 
-		
+
+
+            </div>
+            <!-- end right area -->
+
+
+
+
+        </div>
+
 	</div>
 		
-@Umbraco.RenderMacro("Footer")
+@Html.Partial("desktopFooter")
+
+</body>
+</html>
 	

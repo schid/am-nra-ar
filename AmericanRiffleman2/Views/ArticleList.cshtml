@@ -3,9 +3,8 @@
     Layout = null;
 }
 
-@Umbraco.RenderMacro("Header")
-	
-	@Umbraco.RenderMacro("Nav")
+@Html.Partial("desktopHeader", new ViewDataDictionary { { "currentPage", CurrentPage.Id } })
+@Html.Partial("desktopNav")
 	
 	<div class="container">
 		
@@ -19,4 +18,7 @@
 		
 	</div>
 		
-@Umbraco.RenderMacro("Footer")
+@Html.Partial("desktopFooter")
+
+</body>
+</html>

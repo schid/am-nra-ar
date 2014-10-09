@@ -11,17 +11,23 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {margin-top: 10px; margin-bottom: 10px; font-
 .summary-category {color: red; font-size: 12px;}
 
 /* section styles */
-.swiper-container{width:100%; height: 100%; text-align:center; border: 1px solid #eee;}
+.swiper-container {width:100%; height: 500px;}
+.swiper-slide { }
+/*
 .swiper-slide .title{font-style:italic;font-size:20px;margin-top:80px;margin-bottom:0;line-height:45px;}
 .swiper-pagination-switch{display:inline-block;width:8px;height:8px;border-radius:8px;background:#222;margin-right:5px;opacity:0.8;border:1px solid #fff;cursor:pointer;}
 .swiper-visible-switch{background:#aaa;}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 .swiper-active-switch{background:#ff0000;}
-
-.slide-img {overflow: hidden;}
-.slide-copy {margin: -120px 20px 20px 20px; text-align: left;}
-.slide-title {color: red;}
+*/
+.slide-content {position:relative; height: 500px; width: 400px;}
+.slide-copy {position: absolute; bottom: 0; left: 0; width: 400px; height: 200px; padding: 0 20px 20px 20px;}
+.slide-title a {color: #ff3300;}
+.slide-title a:hover {color: #cc3300;}
 .slide-category {color: #fff; font-size: 12px;}
 .slide-summary {color:#fff;}
+
+
+
 
 .top-bar {color: #83898f; background-color: #212121; padding: 4px 0 4px 0;}
 .top-bar a {color: #ccc;}
@@ -89,6 +95,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {margin-top: 10px; margin-bottom: 10px; font-
 /* bootstrap override */
 .navbar-inverse .navbar-brand {color: #ccc;}
 .navbar-inverse .navbar-nav>li>a {color: #ccc;}
+.breadcrumb {background-color: #fff; padding: 10px 0 0 0; margin-bottom: 0; text-transform: uppercase;}
+.breadcrumb a {color: red;}
+.breadcrumb a:hover {text-decoration: underline;}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {

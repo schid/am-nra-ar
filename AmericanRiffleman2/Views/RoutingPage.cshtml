@@ -4,10 +4,12 @@
 }
 
 @Html.Partial("desktopHeader", new ViewDataDictionary { { "currentPage", CurrentPage.Id } })
-
 @Html.Partial("desktopNav")
+@Html.Partial("breadcrumbs")
 
-@Html.Partial("slider")
+<div class="container">
+    <h1>@Umbraco.Field("title")</h1>
+</div>
 
 @if (@Umbraco.Field("bodyContent").ToString().Trim() != "")
 {

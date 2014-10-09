@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+<div>
+    @CurrentPage.categorysection
+</div>
+
+
+
+
+
+
+@*  TRADITIONAL BREADCRUMBS
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        @foreach (var level in CurrentPage.Ancestors().Where("Visible"))
+        {
+            <li><a href="@level.Url">@level.Name</a> @level.level</li>
+        }
+        <li class="active">@CurrentPage.Name</li>
+    </ul>
+</div>
+*@
