@@ -1,9 +1,21 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 
 
-<div>
-    @CurrentPage.categorysection
-</div>
+@if (CurrentPage.HasValue("categorysection"))
+{
+    string strCategories = CurrentPage.categorysection;
+    string[] aryCategoryIds = strCategories.Split(',');
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            @foreach (string strId in aryCategoryIds)
+            {
+                var item = Umbraco.Content(strId);
+                <li><a href="@item.Url">@item.Name</a></li>
+            }
+        </ul>
+    </div>
+}
 
 
 

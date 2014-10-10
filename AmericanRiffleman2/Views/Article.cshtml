@@ -90,27 +90,47 @@
                     }
                 }
 
-                <!-- categories/tags -->
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h3>Categories</h3>
-                        <div>
-                            @foreach (string category in categoryArry)
-                            {
-                                <a href="#"><span class="badge">@category</span></a>
-                            }
+
+
+                <!-- tags -->
+                @if (Umbraco.Field("topicTags").ToString() != "")
+                {
+                    <div class="tags">
+                        EXPLORE: 
+                        @foreach (string tag in tagArry){<span class="tag"><a href="#">@tag</a></span>}
+                    </div>
+                }
+
+
+
+
+
+
+
+
+                @*
+                    <!-- categories/tags -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>Categories</h3>
+                            <div>
+                                @foreach (string category in categoryArry)
+                                {
+                                    <a href="#"><span class="badge">@category</span></a>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Tags</h3>
+                            <div>
+                                @foreach (string tag in tagArry)
+                                {
+                                    <a href="#"><span class="badge">@tag</span></a>
+                                }
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <h3>Tags</h3>
-                        <div>
-                            @foreach (string tag in tagArry)
-                            {
-                                <a href="#"><span class="badge">@tag</span></a>
-                            }
-                        </div>
-                    </div>
-                </div>
+                *@
 
             </div>
             <!-- end main left area -->
